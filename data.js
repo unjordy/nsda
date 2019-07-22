@@ -2,6 +2,9 @@
 
 const EMAIL_REGEX = /[^@]+@[^.]+\..+/;
 
+// Normalize phone number fields; if given a numeric field, convert
+// to a string. The string phone number is given hyphens, and a +
+// prefix if it includes a country code.
 const normalizePhone = json => {
     if(!json.phone) {
         return json;
