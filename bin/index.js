@@ -31,23 +31,6 @@ const logger = createLogger({
 const main = () => {
     logger.info(`Fetching data from ${ENDPOINT_URL}`);
     api.json(ENDPOINT_URL)
-        .then(json => {
-            const filename = `nsda-debug-${new Date().getTime()}.json`;
-            logger.info(`Writing ${json.length} records to ${filename}`);
-
-            return new Promise((resolve, reject) => {
-                fs.writeFile(`./${filename}`,
-                             JSON.stringify(json, null, 4),
-                             "utf8", err => {
-                                 if(err) {
-                                     reject(err)
-                                 }
-                                 else {
-                                     resolve(json)
-                                 }
-                             })
-            });
-        })
         .then(json => json.map(el => data.sanitize(el)))
         .then(json => {
             const filename = `nsda-${new Date().getTime()}.json`;
