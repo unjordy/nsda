@@ -1,0 +1,21 @@
+{
+    "name": "nsda",
+    "version": "0.0.1",
+    "description": "Solution to the NS8 data assessment code challenge",
+    "main": "bin/index.js",
+    "author": "Jordan Mulcahey",
+    "license": "MIT",
+    "private": false,
+    "bin": "./bin/index.js",
+    "scripts": {
+        "nsda": "node ./bin/index.js",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "jest": "^24.8.0"
+    },
+    "dependencies": {
+        "node-fetch": "^2.6.0",
+        "winston": "^3.2.1"
+    }
+}
